@@ -1,49 +1,350 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Bot,
+  Monitor,
+  Server,
+  Database,
+  Cloud,
+  Wrench,
+  Boxes,
+} from "@lucide/astro";
+import BaseHeadAstroComponent from "../components/BaseHead.astro";
+import CompanyMark from "../components/CompanyMark.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+const skillGroups = [
+  {
+    icon: Bot,
+    title: "GenAI & Agent Systems",
+    skills: [
+      "OpenAI",
+      "MCP",
+      "FastMCP",
+      "RAG",
+      "LangChain",
+      "Custom GPTs",
+      "Embeddings",
+      "Vector Search",
+      "n8n",
+    ],
+  },
+  {
+    icon: Monitor,
+    title: "Frontend Development",
+    skills: ["React", "JavaScript", "TypeScript", "HTML", "CSS"],
+  },
+  {
+    icon: Server,
+    title: "Backend & API Development",
+    skills: [
+      "Python",
+      "FastAPI",
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "SQLAlchemy",
+    ],
+  },
+  {
+    icon: Database,
+    title: "Data & Databases",
+    skills: ["Databricks", "PostgreSQL", "MongoDB", "Redis", "DynamoDB"],
+  },
+  {
+    icon: Cloud,
+    title: "Cloud & DevOps",
+    skills: ["AWS", "Docker", "GitLab CI/CD", "Linux"],
+  },
+  {
+    icon: Wrench,
+    title: "Developer Tools",
+    skills: ["Git", "Gitlab", "GitHub", "Postman"],
+  },
+  {
+    icon: Boxes,
+    title: "Architecture & Integrations",
+    skills: [
+      "Microservices",
+      "API Design",
+      "Enterprise Integrations",
+      "System Design",
+      "Cloud-Native Applications",
+    ],
+  },
+];
+
+const experience = [
+  {
+    period: "MAY 2025 — PRESENT",
+    title: "Full Stack AI Engineer",
+    company: "Amgen",
+    logo: "/logos/amgen.jpg",
+    location: "Hyderabad, India",
+    copy: "Contributing to Full-Stack, GenAI, and AI-agent platforms for enterprise sensing and decision support using Python, FastAPI, React, PostgreSQL, AWS, Databricks, and vector search.",
+    points: [
+      "Enhanced MCP-enabled GenAI services with Python and FastMCP, enabling natural-language access to structured pipeline and portfolio insights.",
+      "Developed retrieval-augmented intelligence workflows using Databricks, embeddings, Delta tables, vector search, metadata filtering, and MCP integration.",
+      "Improved Prioritized Agenda AI capabilities to generate summaries, review key metrics, surface strategic signals, and support executive decision-making.",
+      "Built n8n automation for AI-powered weekly briefs and Custom GPT use cases, making recurring intelligence sharing consistent and timely.",
+      "Implemented AI-assisted feedback triage with Python, OpenAI, LangChain, Microsoft Teams, and ServiceNow APIs to streamline incident creation.",
+      "Delivered a centralized release management application for approvals, deployment planning, rollback tracking, versioning, and lifecycle history.",
+      "Automated Teams release communication with mentions, threaded updates, approver feedback, CC visibility, and shareable links.",
+      "Reduced Sensing notification RunOps support from roughly six hours to one through validated DynamoDB PartiQL bulk automation.",
+    ],
+  },
+  {
+    period: "MAY 2024 — MAR 2025",
+    title: "Backend Developer",
+    company: "BabyCloud",
+    logo: "/logos/babycloud.jpg",
+    location: "Aurangabad, India",
+    copy: "Built backend and product engineering systems for a parenting and child-development platform across payments, personalization, content, media, analytics, and operations.",
+    points: [
+      "Designed subscription management with RevenueCat, Apple Pay, Razorpay, webhooks, and multi-currency support-improving payment success by 20%.",
+      "Optimized APIs for baby name, localized recipes, and recommendations, improving search performance by 30% and engagement by 25%.",
+      "Integrated HLS video encoding for webinars and lectures, improving streaming quality and retention by 30%.",
+      "Strengthened security with secrets management and OTP rate limiting, reducing security risk and unauthorized access.",
+      "Used LangChain and Generative AI for baby-name generation, reducing manual effort by 30%.",
+      "Delivered usage reporting with BigQuery and MoEngage, improving data-driven decisions by 30%.",
+      "Refactored microservices and automated recurring tasks with Python and cron, saving more than 10 hours per week.",
+      "Implemented personalized push notifications and campaign/parent-coach endpoints, increasing interactions by 25-30%.",
+      "Built admin analytics pages, invoices, certificates, child-development reports, and cloud-task workflows, improving operations by 40%.",
+      "Streamlined media uploads with pre-signed URLs and introduced task-based rewards, reducing errors and increasing app usage.",
+    ],
+  },
+  {
+    period: "AUG 2023 — MAY 2024",
+    title: "Backend Developer Intern",
+    company: "BabyCloud",
+    logo: "/logos/babycloud.jpg",
+    location: "Aurangabad, India",
+    copy: "Developed Core APIs, cloud infrastructure, and production reliability systems for the BabyCloud product.",
+    points: [
+      "Architected APIs for reliable communication and data exchange across application components.",
+      "Optimized AWS App Runner, IAM, Secrets Manager, and SNS practices, improving performance by 30% and reducing cloud costs by 25%.",
+      "Led log analysis, bug resolution, and monitoring improvements that increased operational efficiency by 20%.",
+      "Improved API performance by 15% and resolved critical production issues.",
+    ],
+  },
+];
+
+const education = {
+  degree: "B.TECH - COMPUTER SCIENCE AND ENGINEERING",
+  institution: "Vasireddy Venkatadri Institute of Technology",
+  details: "2020 – 2024 · CGPA: 8.65",
+};
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHeadAstroComponent title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-paper text-ink antialiased">
+    <Header />
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8"
+      >
+        <div
+          class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[20rem_1fr] lg:gap-16"
+        >
+          <figure
+            class="order-1 mx-auto lg:mx-0 w-full max-w-[288px] lg:max-w-none"
+          >
+            <div
+              class="relative aspect-square overflow-hidden rounded-full shadow-[var(--portrait-shadow)]"
+            >
+              <img
+                class="size-full rounded-full object-cover object-top"
+                src="/venkatesh-reddy-pitchala.jpg"
+                alt="Venkatesh Reddy Pitchala"
+                loading="eager"
+              />
+            </div>
+          </figure>
+          <div class="order-2 text-left">
+            <h1
+              class="text-[42px] sm:text-[48px] lg:text-[60px] font-extrabold tracking-tight text-ink leading-[1.08]"
+            >
+              Hey, I'm Venkatesh
+            </h1>
+            <p
+              class="mt-3 text-xl sm:text-2xl font-bold tracking-tight text-accent"
+            >
+              Full Stack AI Engineer
+            </p>
+            <p
+              class="mt-5 max-w-2xl text-base sm:text-lg lg:text-xl leading-relaxed text-muted font-normal"
+            >
+              I design and build end-to-end web applications, GenAI services and
+              agent integrations, cloud workflows, and decision-support
+              platforms-turning complex business needs into reliable, scalable
+              software.
+            </p>
+            <div
+              class="mt-8 flex flex-col sm:flex-row gap-3.5 sm:gap-4 items-stretch sm:items-center"
+            >
+              <a
+                href="#experience"
+                class="inline-flex items-center justify-center gap-2.5 rounded-full bg-[var(--button-bg)] px-6 py-3.5 text-sm font-bold text-[var(--button-text)] shadow-sm transition-transform hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto text-center"
+              >
+                View Experience <ArrowDown class="size-4" stroke-width={2.5} />
+              </a>
+              <a
+                href="/projects"
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-line px-6 py-3.5 text-sm font-bold text-ink transition-all hover:border-accent hover:text-accent hover:bg-paper-dark/50 w-full sm:w-auto text-center"
+              >
+                View Projects <ArrowUpRight class="size-4" stroke-width={2.5} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Work Experience Section -->
+      <section id="experience" class="py-12 sm:py-16 border-t border-line/40">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-10 sm:mb-12">
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink"
+            >
+              Work Experience
+            </h2>
+          </div>
+          <div class="divide-y divide-line/60">
+            {
+              experience.map((role) => (
+                <article class="grid gap-4 py-8 sm:py-10 lg:grid-cols-[14rem_1fr] lg:gap-12">
+                  <div>
+                    <p class="text-xs sm:text-sm font-bold tracking-wider text-accent uppercase">
+                      {role.period}
+                    </p>
+                    <p class="mt-1 text-sm text-muted font-medium">
+                      {role.location}
+                    </p>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-3.5 mb-4">
+                      <CompanyMark logo={role.logo} name={role.company} />
+                      <div>
+                        <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-ink leading-tight">
+                          {role.title}
+                        </h3>
+                        <p class="text-sm font-semibold text-muted">
+                          {role.company}
+                        </p>
+                      </div>
+                    </div>
+                    <p class="text-base sm:text-lg leading-relaxed text-muted font-normal">
+                      {role.copy}
+                    </p>
+                    {role.points.length > 0 && (
+                      <ul class="mt-5 grid gap-3 text-sm leading-relaxed text-muted">
+                        {role.points.map((point) => (
+                          <li class="flex items-start gap-3">
+                            <span class="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills & Technologies Section -->
+      <section class="py-12 sm:py-20 bg-paper-dark border-t border-line/40">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="grid gap-8 lg:grid-cols-[22rem_1fr] lg:gap-12">
+            <div>
+              <h2
+                class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink"
+              >
+                Skills & Technologies
+              </h2>
+              <p class="mt-4 text-base sm:text-lg leading-relaxed text-muted">
+                Core technologies I use to build Full-Stack products, AI
+                platforms, and scalable cloud services.
+              </p>
+              <p
+                class="mt-6 text-xs font-bold tracking-[0.18em] text-accent uppercase"
+              >
+                TECHNICAL STACK
+              </p>
+            </div>
+            <div class="grid gap-5 sm:gap-6">
+              {
+                skillGroups.map(({ icon: Icon, title, skills }) => (
+                  <article class="rounded-2xl border border-line bg-paper p-5 sm:p-6 transition-all hover:border-accent/40">
+                    <div class="flex items-center gap-3">
+                      <div class="grid size-9 place-items-center rounded-xl bg-accent-soft text-accent shrink-0">
+                        <Icon class="size-5" stroke-width={1.8} />
+                      </div>
+                      <h3 class="text-lg font-bold tracking-tight text-ink">
+                        {title}
+                      </h3>
+                    </div>
+                    <ul class="mt-4 flex flex-wrap gap-2.5">
+                      {skills.map((skill) => (
+                        <li class="rounded-full border border-line bg-paper-dark px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-muted transition-all hover:border-accent hover:text-ink cursor-default">
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="py-12 sm:py-16 border-t border-line/40">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div
+            class="grid gap-8 lg:grid-cols-[22rem_1fr] lg:gap-12 items-start"
+          >
+            <div>
+              <h2
+                class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink"
+              >
+                Education
+              </h2>
+            </div>
+            <div>
+              <article
+                class="rounded-2xl border border-line bg-paper p-6 sm:p-8"
+              >
+                <p
+                  class="text-xs font-bold tracking-[0.15em] text-accent uppercase"
+                >
+                  {education.degree}
+                </p>
+                <h3
+                  class="text-xl sm:text-2xl font-bold tracking-tight text-ink mt-2"
+                >
+                  {education.institution}
+                </h3>
+                <p class="mt-3 text-sm text-muted font-medium">
+                  {education.details}
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer showContact={true} />
+  </body>
 </html>

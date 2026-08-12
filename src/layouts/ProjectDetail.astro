@@ -3,12 +3,11 @@ import type { CollectionEntry } from 'astro:content';
 import { ArrowLeft } from '@lucide/astro';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'projects'>['data'];
 
-const { title, description, pubDate, updatedDate } = Astro.props;
+const { title, description, skills } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,27 +21,29 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 		<main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 w-full">
 			<div class="mb-8">
 				<a 
-					href="/blog" 
+					href="/projects" 
 					class="inline-flex items-center gap-1.5 text-sm font-semibold text-muted hover:text-ink transition-colors"
 				>
-					<ArrowLeft class="size-4" /> Back to Blog
+					<ArrowLeft class="size-4" /> Back to Projects
 				</a>
 			</div>
 
 			<article>
-				<header class="mb-8">
-					{pubDate && (
-						<p class="text-xs sm:text-sm font-bold text-accent tracking-wider uppercase mb-3">
-							<FormattedDate date={pubDate} />
-						</p>
-					)}
+				<header class="mb-10">
 					<h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-ink leading-[1.1]">
 						{title}
 					</h1>
-					{description && (
-						<p class="mt-4 text-base sm:text-lg text-muted leading-relaxed max-w-3xl font-normal">
-							{description}
-						</p>
+					<p class="mt-4 text-base sm:text-lg text-muted leading-relaxed max-w-3xl font-normal">
+						{description}
+					</p>
+					{skills && skills.length > 0 && (
+						<div class="mt-6 flex flex-wrap gap-2.5">
+							{skills.map((skill: string) => (
+								<span class="rounded-full border border-line bg-paper-dark px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-muted">
+									{skill}
+								</span>
+							))}
+						</div>
 					)}
 				</header>
 
