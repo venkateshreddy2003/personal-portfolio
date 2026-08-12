@@ -24,5 +24,9 @@
   },
   "devDependencies": {
     "wrangler": "^4.122.0"
+  },
+  "optionalDependencies": {
+    "@emnapi/core": "^1.11.1",
+    "@emnapi/runtime": "^1.11.1"
   }
 }
