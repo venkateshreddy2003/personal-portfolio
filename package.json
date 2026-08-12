@@ -21,5 +21,8 @@
     "react-icons": "^5.7.0",
     "sharp": "^0.35.0",
     "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "wrangler": "^4.122.0"
   }
 }
