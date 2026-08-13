@@ -1,8 +1,8 @@
 ---
-import { ArrowUpRight } from '@lucide/astro';
-import LinkedInIcon from './LinkedInIcon.astro';
-import GitHubIcon from './GitHubIcon.astro';
-import MailIcon from './MailIcon.astro';
+import { ArrowUpRight } from "@lucide/astro";
+import LinkedInIcon from "./LinkedInIcon.astro";
+import GitHubIcon from "./GitHubIcon.astro";
+import MailIcon from "./MailIcon.astro";
 
 interface Props {
   showContact?: boolean;
@@ -13,67 +13,74 @@ const today = new Date();
 ---
 
 <footer class="w-full mt-auto">
-  {showContact && (
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="rounded-2xl bg-[var(--contact-bg)] text-white p-8 sm:p-12 lg:p-14">
-        <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-end">
-          <div>
-            <p class="text-xs sm:text-sm font-bold tracking-wider text-[var(--on-contact-muted)] uppercase">
-              CONTACT
-            </p>
-            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mt-3 text-white">
-              Let's connect.
-            </h2>
-            <p class="mt-4 max-w-xl text-base sm:text-lg text-[var(--on-contact-muted)] leading-relaxed font-normal">
-              I'm always open to discussing Full-Stack engineering, AI platforms, and opportunities to collaborate.
-            </p>
-            <div class="mt-8">
-              <a 
-                href="mailto:venkateshreddy.pitchala@gmail.com" 
-                class="inline-flex items-center gap-2.5 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-[var(--contact-bg)] transition-transform hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Email me <MailIcon class="size-4" />
-              </a>
+  {
+    showContact && (
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="rounded-2xl bg-[var(--contact-bg)] text-white p-8 sm:p-12 lg:p-14">
+          <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-end">
+            <div>
+              <p class="text-xs sm:text-sm font-bold tracking-wider text-[var(--on-contact-muted)] uppercase">
+                CONTACT
+              </p>
+              <h2 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mt-3 text-white">
+                Let's connect.
+              </h2>
+              <p class="mt-4 max-w-xl text-base sm:text-lg text-[var(--on-contact-muted)] leading-relaxed font-normal">
+                I'm always open to discussing Full-Stack engineering, AI
+                platforms, and opportunities to collaborate.
+              </p>
+              <div class="mt-8">
+                <a
+                  href="mailto:venkateshreddy2003@outlook.com"
+                  class="inline-flex items-center gap-2.5 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-[var(--contact-bg)] transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Email me <MailIcon class="size-4" />
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="flex flex-col sm:flex-row lg:flex-col gap-6 lg:gap-8 pt-6 lg:pt-0 border-t border-white/20 lg:border-t-0 lg:border-l lg:pl-12">
-            <div>
-              <p class="text-xs font-bold tracking-wider text-[var(--on-contact-muted)] uppercase">
-                BASED IN
-              </p>
-              <p class="text-base sm:text-lg font-semibold text-white mt-1">
-                Hyderabad, India
-              </p>
-            </div>
-            <div>
-              <p class="text-xs font-bold tracking-wider text-[var(--on-contact-muted)] uppercase">
-                AVAILABILITY
-              </p>
-              <p class="text-base sm:text-lg font-semibold text-white mt-1">
-                Open to collaboration
-              </p>
+            <div class="flex flex-col sm:flex-row lg:flex-col gap-6 lg:gap-8 pt-6 lg:pt-0 border-t border-white/20 lg:border-t-0 lg:border-l lg:pl-12">
+              <div>
+                <p class="text-xs font-bold tracking-wider text-[var(--on-contact-muted)] uppercase">
+                  BASED IN
+                </p>
+                <p class="text-base sm:text-lg font-semibold text-white mt-1">
+                  Hyderabad, India
+                </p>
+              </div>
+              <div>
+                <p class="text-xs font-bold tracking-wider text-[var(--on-contact-muted)] uppercase">
+                  AVAILABILITY
+                </p>
+                <p class="text-base sm:text-lg font-semibold text-white mt-1">
+                  Open to collaboration
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  )}
+      </section>
+    )
+  }
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-muted border-t border-line/50 mt-4">
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-muted border-t border-line/50 mt-4"
+  >
     <p>© {today.getFullYear()} Venkatesh Reddy Pitchala</p>
     <div class="flex items-center gap-6">
-      <a 
-        href="https://linkedin.com/in/venkatesh-reddy-pitchala" 
-        target="_blank" 
+      <a
+        href="https://www.linkedin.com/in/venkatesh-reddy-pitchala-b98b431b1/"
+        target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-1.5 hover:text-accent transition-colors font-medium text-muted hover:text-ink"
       >
-        <LinkedInIcon class="size-4" /> LinkedIn <ArrowUpRight class="size-3.5" />
+        <LinkedInIcon class="size-4" /> LinkedIn <ArrowUpRight
+          class="size-3.5"
+        />
       </a>
-      <a 
-        href="https://github.com/venkatesh-reddy-pitchala" 
-        target="_blank" 
+      <a
+        href="https://github.com/venkateshreddy2003"
+        target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-1.5 hover:text-accent transition-colors font-medium text-muted hover:text-ink"
       >

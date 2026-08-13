@@ -143,6 +143,33 @@ const education = {
 <html lang="en">
   <head>
     <BaseHeadAstroComponent title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+
+        "@type": "Person",
+
+        name: "Venkatesh Reddy Pitchala",
+
+        jobTitle: "Full Stack AI Engineer",
+
+        url: "https://venkateshreddy.com",
+
+        sameAs: [
+          "https://www.linkedin.com/in/venkatesh-reddy-pitchala-b98b431b1",
+
+          "https://github.com/venkateshreddy2003",
+        ],
+        email: "mailto: venkateshreddy2003@outlook.com",
+
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Hyderabad",
+          addressCountry: "IN",
+        },
+      })}
+    />
   </head>
   <body class="bg-paper text-ink antialiased">
     <Header />
