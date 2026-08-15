@@ -168,7 +168,7 @@ button {
 .article-content pre code {
 
 	background: transparent;
-
+	color: inherit;
 	padding: 0;
 
 }
@@ -187,6 +187,7 @@ button {
 		opacity: 1;
 		transform: translateY(0);
 	}
+
 	to {
 		opacity: 0;
 		transform: translateY(-4px);
@@ -198,6 +199,7 @@ button {
 		opacity: 0;
 		transform: translateY(4px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
@@ -205,6 +207,7 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
 	::view-transition-old(root),
 	::view-transition-new(root) {
 		animation: none !important;

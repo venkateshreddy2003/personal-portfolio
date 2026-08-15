@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { ArrowUpRight } from '@lucide/astro';
+import { ArrowLeft, ArrowUpRight, FolderOpen } from '@lucide/astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
@@ -19,9 +19,10 @@ const projects = (await getCollection('projects')).sort(
 	<body class="bg-paper text-ink antialiased flex flex-col min-h-screen">
 		<Header />
 		<main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 w-full">
-			<div class="grid grid-cols-1 gap-6 sm:gap-8 max-w-4xl">
-				{
-					projects.map((project) => (
+			{
+				projects.length > 0 ? (
+					<div class="grid grid-cols-1 gap-6 sm:gap-8 max-w-4xl">
+						{projects.map((project) => (
 						<article class="rounded-2xl border border-line bg-paper p-6 sm:p-8 flex flex-col justify-between hover:border-accent/40 transition-all">
 							<div>
 								<h2 class="text-2xl font-bold tracking-tight text-ink">
@@ -49,9 +50,21 @@ const projects = (await getCollection('projects')).sort(
 								</a>
 							</div>
 						</article>
-					))
-				}
-			</div>
+						))}
+					</div>
+				) : (
+					<section class="max-w-2xl mx-auto rounded-2xl border border-dashed border-line bg-paper-dark/40 px-6 py-14 sm:px-12 sm:py-20 text-center">
+						<div class="mx-auto flex size-12 items-center justify-center rounded-full bg-accent/10 text-accent">
+							<FolderOpen class="size-6" aria-hidden="true" />
+						</div>
+						<h1 class="mt-6 text-2xl sm:text-3xl font-bold tracking-tight text-ink">Projects are being curated</h1>
+						<p class="mt-3 text-base text-muted leading-relaxed">There are no projects published yet. Check back soon to see the latest work.</p>
+						<a href="/" class="mt-7 inline-flex items-center gap-2 rounded-lg bg-ink px-4 py-2.5 text-sm font-bold text-paper hover:bg-accent transition-colors">
+							<ArrowLeft class="size-4" /> Back to home
+						</a>
+					</section>
+				)
+			}
 		</main>
 		<Footer showContact={false} />
 	</body>
