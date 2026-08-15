@@ -2,7 +2,7 @@
 title: "Where Did Those 2 Seconds Go? Debugging a Slow Production API"
 description: "A diagnosis-first guide to finding connection waits, N+1 queries, lock contention, poor indexes, query plans, and network overhead."
 pubDate: 2026-08-15
-heroImage: "../../assets/slow-api-debugging-cover.svg"
+heroImage: "../../assets/slow-api-debugging-cover.png"
 ---
 
 `GET /api/orders` takes 82 ms on a local machine.
