@@ -4,7 +4,6 @@
 import "../styles/global.css";
 import type { ImageMetadata } from "astro";
 import { ClientRouter } from "astro:transitions";
-import FallbackImage from "../assets/blog-placeholder-1.jpg";
 import { SITE_TITLE } from "../consts";
 
 interface Props {
@@ -14,7 +13,10 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const { title, description, image } = Astro.props;
+const socialImage = image
+  ? new URL(image.src, Astro.url)
+  : new URL("/venkatesh-reddy-pitchala.jpg", Astro.url);
 ---
 
 <!-- Global Metadata -->
@@ -46,7 +48,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={socialImage} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />

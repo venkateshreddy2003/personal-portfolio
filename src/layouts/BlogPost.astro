@@ -8,13 +8,13 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${title} - Venkatesh Reddy Pitchala`} description={description} />
+		<BaseHead title={`${title} - Venkatesh Reddy Pitchala`} description={description} image={heroImage} />
 	</head>
 
 	<body class="bg-paper text-ink antialiased flex flex-col min-h-screen">

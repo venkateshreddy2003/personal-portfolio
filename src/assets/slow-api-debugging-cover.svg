@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Debugging a slow production API</title>
+  <desc id="description">A technical illustration of API request timing and database diagnostics.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#101827"/>
+      <stop offset="1" stop-color="#1d3046"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="1035" cy="88" r="220" fill="#38bdf8" opacity=".08"/>
+  <circle cx="117" cy="585" r="250" fill="#a78bfa" opacity=".08"/>
+  <text x="90" y="110" fill="#7dd3fc" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="4">PRODUCTION DEBUGGING</text>
+  <text x="90" y="205" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="67" font-weight="700">Where did those</text>
+  <text x="90" y="285" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="67" font-weight="700"><tspan fill="url(#accent)">2 seconds</tspan><tspan> go?</tspan></text>
+  <text x="90" y="337" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="28">Debugging a slow production API</text>
+  <g transform="translate(90 408)">
+    <rect width="980" height="114" rx="16" fill="#0b1220" stroke="#334155"/>
+    <text x="35" y="41" fill="#94a3b8" font-family="Consolas, monospace" font-size="22">GET /api/orders</text>
+    <text x="35" y="82" fill="#e2e8f0" font-family="Consolas, monospace" font-size="22">pool wait</text>
+    <rect x="185" y="62" width="525" height="22" rx="11" fill="#38bdf8"/>
+    <rect x="710" y="62" width="70" height="22" rx="11" fill="#a78bfa"/>
+    <rect x="780" y="62" width="45" height="22" rx="11" fill="#fbbf24"/>
+    <text x="850" y="82" fill="#f8fafc" font-family="Consolas, monospace" font-size="22">2.4 s</text>
+  </g>
+  <text x="90" y="577" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="21">Measure the wait. Fix the bottleneck. Measure again.</text>
+</svg>
