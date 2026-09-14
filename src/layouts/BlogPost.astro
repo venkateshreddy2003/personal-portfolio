@@ -44,6 +44,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 							{description}
 						</p>
 					)}
+					{heroImage && (
+						<img
+							src={heroImage.src}
+							alt={`Illustration for ${title}`}
+							class="mt-8 w-full rounded-2xl border border-line object-cover shadow-sm"
+						/>
+					)}
 				</header>
 
 				<div class="article-content mt-8 border-t border-line/40 pt-8">
