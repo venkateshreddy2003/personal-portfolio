@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+  <title id="title">MCP order lookup request flow</title>
+  <desc id="desc">A user talks to an AI host. Inside the host, the agent runtime coordinates the language model and MCP client. The model proposes a tool call, the runtime validates it, the MCP client sends it to the MCP server, which calls the existing REST API. The result returns through the client and runtime to the model and user.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6f9ff"/><stop offset="1" stop-color="#e8f3f2"/></linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#193344" flood-opacity=".10"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#406478"/></marker>
+    <marker id="arrowBack" markerWidth="10" markerHeight="10" refX="2" refY="5" orient="auto"><path d="M10 0 0 5 10 10z" fill="#72918b"/></marker>
+  </defs>
+  <rect width="1440" height="820" rx="30" fill="url(#background)"/>
+  <text x="720" y="62" text-anchor="middle" fill="#172f3e" font-family="Arial,sans-serif" font-size="30" font-weight="700">Order lookup through MCP</text>
+  <text x="720" y="96" text-anchor="middle" fill="#55717e" font-family="Arial,sans-serif" font-size="17">The host runs the agent loop. The MCP server exposes a tool and calls the existing REST API.</text>
+  <rect x="250" y="135" width="760" height="555" rx="25" fill="#ffffff" fill-opacity=".48" stroke="#9bbbc5" stroke-width="2" stroke-dasharray="9 8"/>
+  <text x="630" y="169" text-anchor="middle" fill="#315567" font-family="Arial,sans-serif" font-size="17" font-weight="700">AI HOST / AGENT RUNTIME</text>
+  <g filter="url(#shadow)">
+    <rect x="45" y="335" width="155" height="118" rx="20" fill="#fff" stroke="#c7dce5" stroke-width="2"/>
+    <rect x="300" y="230" width="210" height="145" rx="20" fill="#fff" stroke="#8ab9c9" stroke-width="2"/>
+    <rect x="300" y="465" width="210" height="145" rx="20" fill="#fff" stroke="#a6c9b4" stroke-width="2"/>
+    <rect x="570" y="325" width="190" height="155" rx="20" fill="#fff" stroke="#d6b983" stroke-width="2"/>
+    <rect x="850" y="325" width="205" height="155" rx="20" fill="#fff" stroke="#a9b7dc" stroke-width="2"/>
+    <rect x="1160" y="325" width="230" height="155" rx="20" fill="#fff" stroke="#a8c8b4" stroke-width="2"/>
+  </g>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <text x="122" y="380" fill="#172f3e" font-size="19" font-weight="700">User</text><text x="122" y="414" fill="#55717e" font-size="14">asks about an order</text>
+    <text x="405" y="278" fill="#172f3e" font-size="19" font-weight="700">Language model</text><text x="405" y="311" fill="#55717e" font-size="14">understands request</text><text x="405" y="340" fill="#315567" font-size="14">proposes get_order_status</text>
+    <text x="405" y="514" fill="#172f3e" font-size="19" font-weight="700">MCP client</text><text x="405" y="547" fill="#55717e" font-size="14">speaks MCP protocol</text><text x="405" y="576" fill="#315567" font-size="14">calls the named tool</text>
+    <text x="665" y="374" fill="#172f3e" font-size="18" font-weight="700">Agent runtime</text><text x="665" y="408" fill="#55717e" font-size="14">validates arguments</text><text x="665" y="436" fill="#55717e" font-size="14">checks policy / approval</text>
+    <text x="952" y="375" fill="#172f3e" font-size="19" font-weight="700">MCP server</text><text x="952" y="409" fill="#55717e" font-size="14">runs tool implementation</text><text x="952" y="437" fill="#315567" font-size="14">calls REST API</text>
+    <text x="1275" y="375" fill="#172f3e" font-size="19" font-weight="700">Existing API</text><text x="1275" y="409" fill="#55717e" font-size="14">FastAPI route</text><text x="1275" y="437" fill="#315567" font-size="14">GET /orders/ORD-1001</text>
+  </g>
+  <g fill="none" stroke="#406478" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M200 365 C235 315 255 300 292 300"/><path d="M510 300 C535 300 548 345 562 365"/><path d="M570 435 C548 478 535 530 518 530"/><path d="M510 530 C640 640 780 590 850 455"/><path d="M1055 400h95"/>
+  </g>
+  <g fill="none" stroke="#72918b" stroke-width="3" marker-end="url(#arrowBack)">
+    <path d="M1160 450h-95"/><path d="M850 455 C765 575 640 625 518 575"/><path d="M405 465 C465 435 465 390 405 375"/><path d="M300 250 C230 210 230 240 200 350"/>
+  </g>
+  <g font-family="Arial,sans-serif" text-anchor="middle" fill="#55717e" font-size="13">
+    <text x="244" y="280">question</text><text x="547" y="290">tool proposal</text><text x="548" y="500">validated call</text><text x="688" y="624">MCP request</text><text x="1100" y="386">HTTP request</text><text x="1100" y="475">JSON response</text><text x="680" y="587">tool result</text><text x="457" y="425">result to model</text><text x="244" y="222">final answer</text>
+  </g>
+  <rect x="300" y="715" width="840" height="58" rx="16" fill="#ffffff" fill-opacity=".8" stroke="#d1e1e8"/>
+  <text x="720" y="751" text-anchor="middle" fill="#315567" font-family="Arial,sans-serif" font-size="16">MCP is the connection protocol. The MCP server is a tool provider, not the agent or agent framework.</text>
+</svg>
